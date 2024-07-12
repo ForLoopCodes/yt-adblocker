@@ -12,6 +12,6 @@ i = setInterval(() => {
         setInterval(() => {
           b.click();
         }, 500);
-        a ? (v.playbackRate = 16) : (v.playbackRate = 1);
+        v.playbackRate = a ? 16 : 1;
       };
 }, 500);
