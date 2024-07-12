@@ -1,3 +1,5 @@
+let allAdsSkipped = false;
+
 function clickSkipAdButton() {
   const skipButton = document.querySelector(".ytp-ad-skip-button");
   if (skipButton) {
@@ -18,12 +20,13 @@ function checkForAd() {
     }, 100);
   } else {
     video.playbackRate = 1.0;
+    allAdsSkipped = true;
   }
 }
 
 // Attempt to click the skip button every second
 const intervalId = setInterval(() => {
-  if (clickSkipAdButton()) {
+  if (allAdsSkipped) {
     clearInterval(intervalId); // Stop checking once the ad is skipped
   } else {
     checkForAd(); // Adjust the playback speed if there's an ad
